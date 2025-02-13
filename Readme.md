@@ -1,0 +1,1 @@
+npm i --save @nestjs/common@11 @nestjs/core@11 @nestjs/platform-express@11 @nestjs/microservices@11 --legacy-peer-deps
