@@ -1,20 +1,19 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
 import { config } from 'dotenv';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { ValidationPipe } from '@nestjs/common';
 
 config(); // Cargar variables de entorno
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
-    AppModule,
-    {
-      transport: Transport.TCP,
-      options: {
-        port: parseInt(process.env.PORT)
-      }
+    AppModule, {
+    transport: Transport.TCP,
+    options: {
+      port: parseInt(process.env.PORT)
     }
+  }
   );
 
   app.useGlobalPipes(
